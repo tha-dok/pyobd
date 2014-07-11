@@ -1,2 +1,14 @@
 pyodb
 =====
+
+This is my fork of the pyodb project from http://www.obdtester.com/pyobd-download
+
+I am an absolute novice when it comes to python (or anything outside of bash really).
+Being a n00b I figured setting up a git repo for revision control might be a good idea.
+
+Hopefully, in the future I'll feel this code is worthy of sharing and possibly
+get it upstream (although with my talents this goal may be very, very, far off).
+
+The personal end goal of this project is to provide a small dash mounted display which
+I can mount inside of my pickup and give me some additional "meters" outputed in a
+colorful ncurses based display (similar to htop). Possibly by means of a Raspberry Pi.
