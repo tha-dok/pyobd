@@ -35,7 +35,7 @@ import sys
 import serial
 import platform
 import time
-import ConfigParser #safe application configuration
+import configparser #safe application configuration
 import webbrowser #open browser from python
 
 from obd2_codes import pcodes
@@ -116,7 +116,7 @@ class MyApp(wx.App):
 
     class sensorProducer(threading.Thread):
         def __init__(self, _notify_window,portName,SERTIMEOUT,RECONNATTEMPTS,_nb):
-            from Queue import Queue
+            from queue import Queue
             self.portName = portName
             self.RECONNATTEMPTS=RECONNATTEMPTS
             self.SERTIMEOUT=SERTIMEOUT
@@ -243,7 +243,7 @@ class MyApp(wx.App):
         def sensor_toggle(e):
             sel = e.m_itemIndex
             state = self.senprod.active[sel]
-            print sel, state
+            print(sel, state)
             if   state == 0:
                 self.senprod.on(sel)
                 self.sensors.SetStringItem(sel,1,"1")
@@ -346,12 +346,12 @@ class MyApp(wx.App):
         tID = wx.NewId()
 
         #read settings from file
-        self.config = ConfigParser.RawConfigParser()
+        self.config = configparser.RawConfigParser()
 
         #print platform.system()
         #print platform.mac_ver()[]
 
-        if "OS" in os.environ.keys(): #runnig under windows
+        if "OS" in list(os.environ.keys()): #runnig under windows
           self.configfilepath="pyobd.ini"
         else:
           self.configfilepath=os.environ['HOME']+'/.pyobdrc'
@@ -550,7 +550,7 @@ the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  0211
 
         root = tree.AddRoot("Code Reference")
         proot = tree.AppendItem(root,"Powertrain (P) Codes")
-        codes = obd_io.pcodes.keys()
+        codes = list(obd_io.pcodes.keys())
         codes.sort()
         group = ""
         for c in codes:
@@ -561,7 +561,7 @@ the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  0211
             tree.AppendItem(leaf, obd_io.pcodes[c])
 
         uroot = tree.AppendItem(root,"Network (U) Codes")
-        codes = obd_io.ucodes.keys()
+        codes = list(obd_io.ucodes.keys())
         codes.sort()
         group = ""
         for c in codes:
