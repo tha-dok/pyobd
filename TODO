@@ -1,0 +1,21 @@
+Just a list of TODOs so I don't lose track.
+
+- Apparently this can't be converted with 2to3
+    I am going to need to read up on how to work around this one...
+
+    RefactoringTool: Files that need to be modified:
+    RefactoringTool: obd_io.py
+    RefactoringTool: Warnings/messages while refactoring:
+    RefactoringTool: ### In file obd_io.py ###
+    RefactoringTool: Line 157: could not convert: raise "BogusCode"
+    RefactoringTool: Python 3 does not support string exceptions
+
+- After converting pyobd to python3 I now get this error.
+
+    Traceback (most recent call last):
+      File "./pyobd", line 28, in <module>
+          import wx
+          ImportError: No module named 'wx
+
+    I suspect this one will be quite simple, but it's been awhile
+    since I last seriously fucked with python...
