@@ -154,7 +154,10 @@ class OBDPort:
 
          # 9 seems to be the length of the shortest valid response
          if len(code) < 7:
-             raise "BogusCode"
+             # Apparently string exceptions are no longer allowed in python3.
+             # Let me try and workaround it -DV
+             # raise "BogusCode"
+             raise ValueError('BogusCode')
 
          # get the first thing returned, echo should be off
          code = string.split(code, "\r")
